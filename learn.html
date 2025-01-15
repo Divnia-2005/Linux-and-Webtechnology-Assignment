@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A guide to essential Linux commands with explanations, purposes, usage examples, and applications.">
+  <title>Essential Linux Commands</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to a stylesheet if needed -->
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #111111;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url('https://undsgn.com/wp-content/uploads/2018/04/ltotbngnzzu-uai-1600x900.jpg');
+      background-size: cover;
+      background-position: center center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
+      padding: 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #ffffff;
+      background-color:red;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+     .btn:hover {
+      background-color: #0288d1;
+    }
+    #taskbar {
+      padding-top:100px;
+      background-color: #111111;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px;
+    }
+    #taskbar a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    #taskbar a:hover {
+      background-color: #444444;
+    }
+    #taskbar .home {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin-right: auto;
+      padding-left: 10px;
+    }
+    main {
+      padding: 20px;
+      margin-top: 60px;
+      background-color: #1a1a1a;
+    }
+    section {
+      margin-top:40px;
+      margin-bottom: 40px;
+      background-color: #333333;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    h2 {
+      color: #03a9f4;
+    }
+    .description, .syntax, .examples, .purpose, .usage, .application {
+      margin: 10px 0;
+    }
+    footer {
+      background-color: #111111;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .command-screenshot {
+      margin-top: 10px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+
+<body>
+  <div id="taskbar">
+    <a href="Assignment.html" class="home">&#8962; Home</a>
+    <a href="#top">top</a>
+    <a href="#kill">kill</a>
+    <a href="#ping">ping</a>
+    <a href="#ssh">ssh</a>
+    <a href="#scp">scp</a>
+    <a href="#curl">curl</a>
+    <a href="#diff">diff</a>
+    <a href="#head">head</a>
+    <a href="#tail">tail</a>
+  </div>
+  
+  <section id="top">
+    <h2>top</h2>
+    <p class="description">The 'top' command provides a dynamic real-time view of the system's processes. It's commonly used to monitor CPU and memory usage, and to identify resource-hogging processes.</p>
+    <div class="purpose">
+      <strong>Purpose:</strong> Monitor system performance and active processes.
+    </div>
+    <div class="usage">
+      <strong>Usage:</strong> Ideal for system administrators and users troubleshooting performance issues.
+    </div>
+    <div class="application">
+      <strong>Application:</strong> Use in environments where real-time process monitoring is critical, such as during load testing or system debugging.
+    </div>
+    <div class="syntax">
+      <strong>Syntax:</strong> top
+    </div>
+    <div class="examples">
+      <strong>Example:</strong>
+      <pre>$ top</pre>
+      <p>Displays CPU, memory usage, and process details.</p>
+      <img src="top exmpl.png" alt="top command screenshot" class="command-screenshot" style="width: 600px; height: auto;">
+    </div>
+  </section>
+
+  <section id="kill">
+    <h2>kill</h2>
+    <p class="description">The 'kill' command sends a signal to a process, usually to terminate it. If the process doesn't terminate normally, the 'kill' command can send stronger signals to force it to quit.</p>
+    <div class="purpose">
+      <strong>Purpose:</strong> Terminate processes that are unresponsive or consuming excessive resources.
+    </div>
+    <div class="usage">
+      <strong>Usage:</strong> Commonly used by system administrators to manage runaway or problematic processes.
+    </div>
+    <div class="application">
+      <strong>Application:</strong> Useful in troubleshooting, script automation, or during system maintenance to halt specific processes.
+    </div>
+    <div class="syntax">
+      <strong>Syntax:</strong> kill [PID]
+    </div>
+    <div class="examples">
+      <strong>Example:</strong>
+      <pre>$ kill 1234</pre>
+      <p>Terminates process with PID 1234.</p>
+      <img src="kill example.png" alt="kill command screenshot" class="command-screenshot" style="width: 900px; height: auto;">
+    </div>
+  </section>
+  
+
+    <section id="ping">
+      <h2>ping</h2>
+      <p class="description">The 'ping' command is used to test the reachability of a network host. It works by sending ICMP Echo Request packets and waits for responses, helping diagnose network issues.</p>
+      <div class="purpose">
+        <strong>Purpose:</strong> Verify network connectivity and diagnose latency or packet loss.
+      </div>
+      <div class="usage">
+        <strong>Usage:</strong> Ideal for network troubleshooting and determining the status of remote hosts.
+      </div>
+      <div class="application">
+        <strong>Application:</strong> Use in network setup, performance testing, or when debugging internet connection issues.
+      </div>
+      <div class="syntax">
+        <strong>Syntax:</strong> ping [hostname or IP]
+      </div>
+      <div class="examples">
+        <strong>Example:</strong>
+        <pre>$ ping google.com</pre>
+        <p>Sends ICMP packets to google.com to test connectivity.</p>
+        <img src="ping example.png" alt="ping command screenshot" class="command-screenshot" style="width: 600px; height: auto;">
+      </div>
+    </section>
+
+    <section id="ssh">
+      <h2>ssh</h2>
+      <p class="description">The 'ssh' command is used to securely log in to a remote system over a network. It provides an encrypted connection for managing servers and performing administrative tasks.</p>
+      <div class="purpose">
+        <strong>Purpose:</strong> Establish secure remote access to systems.
+      </div>
+      <div class="usage">
+        <strong>Usage:</strong> Widely used by IT professionals for server management and secure file transfers.
+      </div>
+      <div class="application">
+        <strong>Application:</strong> Essential for remote server maintenance, cloud management, and development environments.
+      </div>
+      <div class="syntax">
+        <strong>Syntax:</strong> ssh user@hostname
+      </div>
+      <div class="examples">
+        <strong>Example:</strong>
+        <pre>$ ssh user@example.com</pre>
+        <p>Connects to the remote server example.com as user.</p>
+        <img src="ssh example.png" alt="ssh command screenshot" class="command-screenshot" style="width: 500px; height: auto;">
+      </div>
+    </section>
+
+    <section id="scp">
+      <h2>scp</h2>
+      <p class="description">The 'scp' command is used to securely copy files between hosts on a network using SSH for data transfer. It's a safe way to transfer files to and from remote servers.</p>
+      <div class="purpose">
+        <strong>Purpose:</strong> Transfer files securely over a network.
+      </div>
+      <div class="usage">
+        <strong>Usage:</strong> Commonly used by developers and administrators for safe data exchange.
+      </div>
+      <div class="application">
+        <strong>Application:</strong> Ideal for securely transferring configuration files, backups, and scripts between systems.
+      </div>
+      <div class="syntax">
+        <strong>Syntax:</strong> scp [source] [destination]
+      </div>
+      <div class="examples">
+        <strong>Example:</strong>
+        <pre>$ scp file.txt user@remote:/path/to/destination</pre>
+        <p>Copies file.txt to the remote server at the specified path.</p>
+        <img src="scp example.png" alt="scp command screenshot" class="command-screenshot" style="width: 600px; height: auto;">
+      </div>
+    </section>
+
+    <section id="curl">
+      <h2>curl</h2>
+      <p class="description">The 'curl' command transfers data to or from a server using various protocols (HTTP, FTP, etc.). It is used to download files, interact with APIs, or fetch web pages.</p>
+      <div class="purpose">
+        <strong>Purpose:</strong> Fetch or send data over the internet programmatically.
+      </div>
+      <div class="usage">
+        <strong>Usage:</strong> Popular among developers for API interaction and web scraping.
+      </div>
+      <div class="application">
+        <strong>Application:</strong> Use for downloading files, debugging servers, and automating data retrieval tasks.
+      </div>
+      <div class="syntax">
+        <strong>Syntax:</strong> curl [options] [URL]
+      </div>
+      <div class="examples">
+        <strong>Example:</strong>
+        <pre>$ curl https://example.com</pre>
+        <p>Fetches the content of the specified URL.</p>
+        <img src="curl example.png" alt="curl command screenshot" class="command-screenshot" style="width: 600px; height: auto;">
+      </div>
+    </section>
+
+    <section id="diff">
+      <h2>diff</h2>
+      <p class="description">The 'diff' command compares two files line by line. It shows the differences between them, helping to identify changes between files or directories.</p>
+      <div class="purpose">
+        <strong>Purpose:</strong> Compare files to identify differences.
+      </div>
+      <div class="usage">
+        <strong>Usage:</strong> Commonly used in version control and patch creation.
+      </div>
+      <div class="application">
+        <strong>Application:</strong> Useful for developers to review changes, debug issues, or apply patches.
+      </div>
+      <div class="syntax">
+        <strong>Syntax:</strong> diff [file1] [file2]
+      </div>
+      <div class="examples">
+        <strong>Example:</strong>
+        <pre>$ diff file1.txt file2.txt</pre>
+        <p>Shows the differences between file1.txt and file2.txt.</p>
+        <img src="diff example.png" alt="diff command screenshot" class="command-screenshot" style="width: 400px; height: auto;">
+      </div>
+    </section>
+
+    <section id="head">
+      <h2>head</h2>
+      <p class="description">The 'head' command shows the first few lines of a file. It's commonly used to preview large files or to check file content quickly.</p>
+      <div class="purpose">
+        <strong>Purpose:</strong> Preview the start of a file.
+      </div>
+      <div class="usage">
+        <strong>Usage:</strong> Ideal for quickly checking file contents or validating formats.
+      </div>
+      <div class="application">
+        <strong>Application:</strong> Use in data analysis, log inspection, or script debugging.
+      </div>
+      <div class="syntax">
+        <strong>Syntax:</strong> head [options] [file]
+      </div>
+      <div class="examples">
+        <strong>Example:</strong>
+        <pre>$ head -n 10 file.txt</pre>
+        <p>Displays the first 10 lines of file.txt.</p>
+        <img src="head example.png" alt="head command screenshot" class="command-screenshot" style="width: 400px; height: auto;">
+      </div>
+    </section>
+
+    <section id="tail">
+      <h2>tail</h2>
+      <p class="description">The 'tail' command shows the last few lines of a file. It's often used to monitor log files and check for the most recent entries.</p>
+      <div class="purpose">
+        <strong>Purpose:</strong> View the end of a file, especially for recent changes.
+      </div>
+      <div class="usage">
+        <strong>Usage:</strong> Commonly used for monitoring logs and real-time data updates.
+      </div>
+      <div class="application">
+        <strong>Application:</strong> Ideal for administrators monitoring log files or debugging real-time issues.
+      </div>
+      <div class="syntax">
+        <strong>Syntax:</strong> tail [options] [file]
+      </div>
+      <div class="examples">
+        <strong>Example:</strong>
+        <pre>$ tail -n 10 file.txt</pre>
+        <p>Displays the last 10 lines of file.txt.</p>
+        <img src="tail example.png" alt="tail command screenshot" class="command-screenshot" style="width: 400px; height: auto;">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Linux Commands Guide</p>
+  </footer>
+</body>
+</html>
